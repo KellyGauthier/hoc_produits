@@ -1,0 +1,75 @@
+﻿*Afficher toutes les évaluations, avec uniquement les colonnes suivantes :
+    - Nom produit
+    - Nom utilisateur
+    - Prix du produit
+    - Date de l'évaluation
+    - Note
+    - Commentaire
+
+- 
+
+SELECT reference, prix_unitaire_ht, date_eval, note, commentaire, nom 
+FROM produit p
+inner join evaluation ev
+ON ev.id_produit = p.id
+INNER JOIN utilisateur u
+on u.id = ev.id_utilisateur
+
+*Afficher toutes les évaluations ayant une note supérieure à 3.
+
+
+SELECT reference, prix_unitaire_ht, date_eval, note, commentaire, nom 
+FROM produit p
+inner join evaluation ev
+ON ev.id_produit = p.id
+INNER JOIN utilisateur u
+on u.id = ev.id_utilisateur
+WHERE note > 3
+
+*Trier ces évaluations par date d'évaluation décroissante (de la plus récente à la plus ancienne)
+
+
+SELECT reference, prix_unitaire_ht, date_eval, note, commentaire, nom 
+FROM produit p
+inner join evaluation ev
+ON ev.id_produit = p.id
+INNER JOIN utilisateur u
+on u.id = ev.id_utilisateur
+WHERE note > 3
+ORDER BY ev.date_eval DESC
+
+*Afficher les colonnes suivantes pour cette requête :
+    - Nom produit
+    - Nom utilisateur
+    - Note
+    - Date évaluation
+
+-
+
+SELECT reference, date_eval, note, nom 
+FROM produit p
+inner join evaluation ev
+ON ev.id_produit = p.id
+INNER JOIN utilisateur u
+on u.id = ev.id_utilisateur
+
+*Afficher les produits n'ayant pas d'évaluation. 
+
+SELECT reference, date_eval, note, nom
+FROM produit p
+LEFT join evaluation ev
+ON ev.id_produit = p.id
+LEFT JOIN utilisateur u
+on u.id = ev.id_utilisateur
+
+*Inclure les colonnes suivantes :
+    - Nom produit
+    - Prix du produit
+
+
+SELECT reference, date_eval, note, nom, reference, prix_unitaire_ht 
+FROM produit p
+LEFT join evaluation ev
+ON ev.id_produit = p.id
+LEFT JOIN utilisateur u
+on u.id = ev.id_utilisateur

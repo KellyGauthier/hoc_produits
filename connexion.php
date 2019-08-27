@@ -1,5 +1,5 @@
 <?php require_once 'layout/header.php'; ?>
-<?php require_once 'src/utils.php'; ?>
+<?php require_once 'src/Utils.php'; ?>
 <?php require_once 'src/users_functions.php'; ?>
 
 <?php
@@ -18,7 +18,7 @@ if (
 
     $_SESSION['userLogin'] = authenticate($login, $pass);
     if ($_SESSION['userLogin'] !== null) {
-        redirect('index.php');
+        Utils::redirect('index.php');
     } else {
         $error = true;
     }

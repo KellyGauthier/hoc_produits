@@ -1,12 +1,12 @@
 <?php
-require_once 'src/utils.php';
+require_once 'src/Utils.php';
 require_once 'src/produits_functions.php';
 require_once 'layout/header.php';
 require_once 'data/produits/data_liste.php';
 
 // Si la clé "id" n'existe pas, on redirige vers la page d'accueil
 if (!array_key_exists('id', $_GET)) {
-    redirect ('index.php');
+    Utils::redirect('index.php');
 }
 
 $id = $_GET['id'];
